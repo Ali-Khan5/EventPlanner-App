@@ -1,0 +1,36 @@
+.b{
+    background: url(img.jpg) no-repeat center center fixed;
+    background-size: cover;
+    
+    }
+    button{
+        width:260px;
+        height: 130%;
+        font-weight: bold;
+        font-size: 44px;
+    }
+    .G{
+        color:#219bf2;
+    }
+    .g2{
+        color:#219bf2;
+    }
+    .o1{
+        color:red;
+    }
+    .o2{
+        color:yellow;
+    }
+    .l{
+        color:green;
+    }
+    
+    h1{
+        font-size: 65px;
+    }
+    @media only screen and (max-width: 500px) {
+        h1{
+            font-size: 45px;
+            
+        }
+    }

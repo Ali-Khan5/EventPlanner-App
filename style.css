@@ -1,0 +1,48 @@
+.card{
+    width:55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8px;
+    
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.more{
+    color:blue;
+
+}
+.more:hover{
+    text-decoration: underline;
+}
+#moAlert{
+    display: none;
+}
+img{
+    width:100%;
+    height: 260px;
+}
+.font{
+    font-size: 22px;
+    cursor: pointer;
+}
+@media only screen and (max-width: 769px) {
+    .card{
+        width:71%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 8px;
+    }
+}
+.comment-pic{
+    width: 70px;
+    height: 70px;
+    border-radius: 100px;
+}
+.bu{
+             width: 150px;
+            margin-left: 15px;   
+            margin-top: 10px;
+}

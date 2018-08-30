@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EventPlannerApp</title>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyASyoLLGPKUalwr2MEZr2e-AqEtPmPaAm4",
+        authDomain: "eventplanerapp.firebaseapp.com",
+        databaseURL: "https://eventplanerapp.firebaseio.com",
+        projectId: "eventplanerapp",
+        storageBucket: "eventplanerapp.appspot.com",
+        messagingSenderId: "251484244354"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+     
+     <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+        <nav class="navbar navbar-toggleable-md  navbar navbar-inverse bg-inverse">
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="font-size:28px;">EventPlannerApp</a>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+                  <ul class=" navbar-nav mr-auto ">
+        
+                    <li class="nav-item active font">
+                      <a class="nav-link " href="homepage.html">Home Page<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active font">
+                        <a class="nav-link " href="eventfeed.html">Event Feed<span class="sr-only">(current)</span></a>
+                      </li>
+                    
+                    
+                  </ul>
+                 <span class="navbar-text font" style="color:white" onclick="facebookSignout();">Sign Out</span>
+                
+                </div>
+                
+              </nav>
+        
+            </br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" id="maindiv">
+                            <div class="card mb-3 card-outline-danger">
+                                <img src="" class="card-img-top" alt="card-img" id="pic">
+                                <div class="card-block" id="divvv">
+                                    <h4 class="card-title" id="evtitle"></h4>
+                                    <p class="card-text" id="eventdes"></p>
+                                    <h5>Event At:</h5>
+                                    <p class="card-text" id="lo"></p>
+                                    <h5>Event Date:</h5>
+                                    <p class="card-text" id="datee"></p>
+                                    
+                                   <h5>Event Created By:</h5>
+                                   <p class="card-text" id="created"></p>
+                                   <p class="card-text" id="email"></p>
+                                   <div id="disscss"> <h5>Disscusion / Feedback:</h5></div>
+                                  
+                                   <div id="Csection"></div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      <script src="eventpage.js"></script>
+</body>
+</html>

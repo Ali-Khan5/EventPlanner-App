@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EventPlannerApp</title>
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyASyoLLGPKUalwr2MEZr2e-AqEtPmPaAm4",
+        authDomain: "eventplanerapp.firebaseapp.com",
+        databaseURL: "https://eventplanerapp.firebaseio.com",
+        projectId: "eventplanerapp",
+        storageBucket: "eventplanerapp.appspot.com",
+        messagingSenderId: "251484244354"
+      };
+      firebase.initializeApp(config);
+    </script>
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+   
+    
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md  navbar navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#" style="font-size:28px;">EventPlannerApp</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class=" navbar-nav mr-auto ">
+
+            <li class="nav-item active font">
+              <a class="nav-link " href="homepage.html">HomePage<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active font">
+                <a class="nav-link " href="eventfeed.html">Event Feed<span class="sr-only">(current)</span></a>
+              </li>
+            
+            
+          </ul>
+         <span class="navbar-text font" style="color:white" onclick="facebookSignout();"> Sign Out</span>
+        
+        </div>
+        
+      </nav>
+
+    </br>
+
+    </br>
+    <!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade  bd-example-modal-lg" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+      
+        <h4 class="modal-title">Create Event</h4>
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+             <div class="form-group" id="addressdiv">
+            <label for="text">Event Title:</label>
+            <input type="text" class="form-control" id="title" placeholder="title for your event">
+          </div>
+
+          <div class="form-group" id="aboutmediv">
+            <label for="comment">Event Description :</label>
+            <textarea class="form-control" rows="3" id="aboutevent" placeholder="What will your event be about ? the more info the better"></textarea>
+          </div>
+
+          <div class="form-group" id="addressdiv">
+            <label for="text">Location:</label>
+            <input type="text" class="form-control" id="eventLocation" placeholder="Location of your event">
+          </div>
+          
+          <div class="form-group" id="duration">
+            <legend>Duration of the Event</legend>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="single" onchange="radioDate();" >
+                Single Day Event 
+              </label>
+            </div>
+
+            <!-- <div class="form-check">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="multi" onchange="radioDate();">
+                Multi Day Event
+              </label>
+            </div> -->
+          </div>
+
+
+          
+      <div class="form-group" id="singleEvent">
+        <label for="text">Event Date:</label>
+        <input type="date" class="form-control" id="date" placeholder="date  of your event">
+      </div>
+      <div class="form-group" id="multiEvent">
+        <label for="text">Starting Event Date:</label>
+        <input type="date" class="form-control" id="date2" placeholder="date  of your event">
+        <label for="text">Ending Event Date:</label>
+        <input type="date" class="form-control" id="date3" placeholder="date  of your event">
+      </div>
+
+      <div class="form-group" id="addressdiv">
+        <label for="text">Background-Image:</label>
+        <input type="file" class="form-control-file" id="file" >
+        <small id="fileHelp" class="form-text text-muted">This will be your background Image of your Event ,make sure that the picture is related to the event or the image adds something to the event page .
+          </small>
+        
+      </div>
+      <div class="alert alert-success" id="moAlert" role="alert">
+          <strong>Well done!</strong> Your Event has been successfully Created! 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" onclick="upload();">Create!!!</button>  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 ">
+                  <button class="btn btn-warning float-right " data-toggle="modal" data-target="#myModal">Create Event !!</button>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+      <hr/>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>MY EVENT FEED</h3>
+        </div>
+      </div>
+      <div class="row" id="main">
+          <div class="alert alert-info" role="alert">
+              <strong>This field</strong> will contain all the events created by you.If this appears empty dont worry ,just create an event and it will appear !!.Otherwise you can click on <strong>Event Feed</strong>
+               to view events created by Others.
+            </div>
+      </div>
+    </div>
+            
+    </br>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <script src="home.js"></script>
+</body> 
+</html>
